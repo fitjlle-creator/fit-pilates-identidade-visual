@@ -1,0 +1,169 @@
+/* Slides de 1080x1350. Toda cor vem dos tokens definidos em .sl, então qualquer modelo troca de paleta. */
+@font-face{font-family:'Working';src:url('../fontes/Working/Working-Regular.otf') format('opentype');font-weight:400;font-display:block}
+@font-face{font-family:'Overused Grotesk';src:url('../fontes/OverusedGrotesk/OverusedGrotesk-Light.otf') format('opentype');font-weight:300;font-display:block}
+@font-face{font-family:'Overused Grotesk';src:url('../fontes/OverusedGrotesk/OverusedGrotesk-Regular.otf') format('opentype');font-weight:400;font-display:block}
+@font-face{font-family:'Overused Grotesk';src:url('../fontes/OverusedGrotesk/OverusedGrotesk-Medium.otf') format('opentype');font-weight:500;font-display:block}
+@font-face{font-family:'Overused Grotesk';src:url('../fontes/OverusedGrotesk/OverusedGrotesk-Bold.otf') format('opentype');font-weight:700;font-display:block}
+
+.sl{--k:1;--esc:#005059;--pri:#006B75;--dest:#B56A55;--claro:#F2E8DC;--tx:#212620;
+  --dest-claro:color-mix(in srgb,var(--dest) 55%,#fff);
+  --fundo:var(--claro);--texto:var(--tx);--marca:var(--dest);
+  width:1080px;height:1350px;position:relative;overflow:hidden;display:flex;flex-direction:column;
+  background:var(--fundo);color:var(--texto);font-family:'Overused Grotesk',Arial,sans-serif;font-synthesis:none;
+  -webkit-font-smoothing:antialiased;text-align:left}
+.sl *{box-sizing:border-box}
+.sl.f-claro{--fundo:var(--claro);--texto:var(--tx);--marca:var(--dest)}
+.sl.f-escuro{--fundo:var(--esc);--texto:var(--claro);--marca:var(--dest-claro)}
+.sl.f-grafite{--fundo:var(--tx);--texto:var(--claro);--marca:var(--dest-claro)}
+.sl.f-cor{--fundo:var(--dest);--texto:var(--tx);--marca:var(--claro)}
+.sl.f-foto{--fundo:var(--tx);--texto:var(--claro);--marca:var(--dest-claro)}
+
+/* Tipografia. O --k encolhe tudo junto quando o texto não cabe. */
+.t-xg{font:400 calc(112px*var(--k))/1.02 'Working',Georgia,serif;letter-spacing:-.01em;margin:0}
+.t-g{font:400 calc(84px*var(--k))/1.06 'Working',Georgia,serif;letter-spacing:-.005em;margin:0}
+.t-m{font:400 calc(62px*var(--k))/1.12 'Working',Georgia,serif;margin:0}
+.t-p{font:400 calc(46px*var(--k))/1.18 'Working',Georgia,serif;margin:0}
+.c-g{font-size:calc(42px*var(--k));line-height:1.32;font-weight:400;margin:0}
+.c-m{font-size:calc(36px*var(--k));line-height:1.36;font-weight:400;margin:0}
+.c-f{font-size:calc(36px*var(--k));line-height:1.3;font-weight:700;margin:0}
+.rot{font-size:24px;line-height:1.2;font-weight:500;letter-spacing:.04em;text-transform:uppercase;margin:0}
+.d{font-style:normal;color:var(--marca)}
+.centro{text-align:center;align-items:center}
+
+/* Estrutura */
+.topo,.pe{flex:none;display:flex;align-items:center;justify-content:space-between;gap:24px;font-size:24px;font-weight:500;position:relative;z-index:3}
+.topo{padding:48px 72px 0}
+.pe{padding:0 72px 48px}
+.logo{width:230px;height:64px;object-fit:cover;display:block;margin-left:-22px}
+.miolo{flex:1;min-height:0;display:flex;flex-direction:column;gap:32px;padding:40px 72px;position:relative;z-index:2;overflow:hidden}
+.miolo.base{justify-content:flex-end}
+.miolo.meio{justify-content:center}
+.foto{display:block;width:100%;min-height:0;overflow:hidden;background:color-mix(in srgb,var(--texto) 14%,var(--fundo));position:relative}
+.foto img{width:100%;height:100%;object-fit:cover;display:block}
+.foto.vazia::after{content:'Sua foto aqui';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:26px;opacity:.55}
+.foto.cresce{flex:1 1 0;min-height:260px}
+.foto.redonda{border-radius:28px}
+.foto.fundo{position:absolute;inset:0;height:100%;z-index:0}
+.veu{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,#0000 30%,color-mix(in srgb,var(--tx) 92%,#0000) 82%)}
+.veu.cheio{background:color-mix(in srgb,var(--tx) 62%,#0000)}
+.veu.topo-e-base{background:linear-gradient(180deg,color-mix(in srgb,var(--tx) 60%,#0000),#0000 26%,#0000 44%,color-mix(in srgb,var(--tx) 94%,#0000) 84%)}
+.pilula{align-self:flex-start;border:2px solid currentColor;border-radius:999px;padding:12px 28px;font-size:26px;font-weight:500}
+.centro .pilula{align-self:center}
+.duas{flex:1 1 0;min-height:260px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+
+/* Folha: creme e petróleo, moldura e linha pontilhada */
+.m-folha .moldura-capa{flex:1;min-height:0;margin:32px 72px 0;display:flex;position:relative}
+.m-folha .moldura-capa .foto{height:100%}
+.m-folha .pontilhado{border-top:4px dotted var(--marca);width:100%}
+.m-folha .cartao{background:var(--claro);color:var(--tx);--marca:var(--dest);padding:64px;display:flex;flex-direction:column;gap:28px}
+.m-folha .foto.sangra{flex:1 1 0;min-height:300px}
+
+/* Dossiê: cabeçalho entre colchetes e filete de cor no pé */
+.m-dossie .filete{flex:none;height:16px;background:var(--dest);position:relative;z-index:3}
+.m-dossie .colchete::before{content:'[ '}
+.m-dossie .colchete::after{content:' ]'}
+.m-dossie .foto.borda{border:3px solid var(--texto);border-radius:26px}
+
+/* Mosaico: fundos alternados e numeração */
+.m-mosaico .num{font:400 calc(46px*var(--k))/1 'Working',Georgia,serif;color:var(--marca)}
+.m-mosaico.f-grad{background:linear-gradient(165deg,var(--pri),var(--esc) 45%,var(--tx));--texto:var(--claro);--marca:var(--dest-claro);color:var(--texto)}
+.m-mosaico .banda{background:var(--tx);color:var(--claro);--marca:var(--dest-claro);padding:56px 72px;margin:0 -72px}
+.m-mosaico .cartao{background:var(--esc);color:var(--claro);--marca:var(--dest-claro);border-radius:28px;padding:56px;display:flex;flex-direction:column;gap:20px}
+.m-mosaico .regua{border-top:2px solid currentColor;padding-top:24px}
+
+/* Manifesto: caixa de cor sobre foto e páginas sólidas */
+.m-manifesto .caixa{background:var(--dest);color:var(--tx);--marca:var(--claro);width:760px;padding:64px;display:flex;flex-direction:column;gap:28px;margin:auto}
+.m-manifesto .tira-foto{flex:1 1 0;min-height:200px;position:relative;display:flex;align-items:flex-end}
+.m-manifesto .tira-foto .foto{position:absolute;inset:0;height:100%}
+.m-manifesto .tira-foto p{position:relative;z-index:2;background:var(--tx);color:var(--claro);padding:12px 20px;margin:0;font-size:calc(34px*var(--k));font-weight:500}
+
+/* Jornal: grade fina ao fundo e foto em cartão */
+.m-jornal.quadriculado{background-image:linear-gradient(color-mix(in srgb,var(--texto) 9%,#0000) 2px,#0000 2px),linear-gradient(90deg,color-mix(in srgb,var(--texto) 9%,#0000) 2px,#0000 2px);background-size:90px 90px}
+.m-jornal .foto{border-radius:22px}
+.m-jornal .foto.fundo{border-radius:0}
+.m-jornal .veu.cheio{background:color-mix(in srgb,var(--tx) 80%,#0000)}
+.m-jornal .forte{font-weight:700;font-size:calc(66px*var(--k));line-height:1.08;letter-spacing:-.01em;margin:0}
+
+/* Contraste: duas metades empilhadas */
+.metade{flex:1 1 0;min-height:0;position:relative;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
+.metade+.metade{border-top:6px solid var(--claro)}
+.metade .foto{position:absolute;inset:0;height:100%}
+.metade .veu{background:linear-gradient(180deg,#0000 35%,color-mix(in srgb,var(--tx) 94%,#0000) 92%)}
+.metade p{position:relative;z-index:2;margin:0;padding:0 72px 44px;text-align:center;color:var(--claro);font:400 calc(54px*var(--k))/1.14 'Working',Georgia,serif}
+.metade.banda-a{background:linear-gradient(180deg,var(--claro),var(--pri) 60%,var(--esc))}
+.metade.banda-b{background:linear-gradient(180deg,var(--claro),var(--dest) 60%,var(--tx))}
+
+/* Espelho: a mesma foto em cor e em preto e branco */
+.espelho{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr}
+.espelho>div{position:relative;overflow:hidden}
+.espelho .foto{position:absolute;inset:0;height:100%}
+.espelho .pb img{filter:grayscale(1) contrast(1.05)}
+.espelho p{position:absolute;z-index:2;left:40px;right:40px;top:50%;transform:translateY(-50%);margin:0;text-align:center;color:var(--claro);font:500 calc(46px*var(--k))/1.18 'Overused Grotesk',Arial,sans-serif}
+.espelho .veu{background:color-mix(in srgb,var(--tx) 45%,#0000)}
+
+/* Veredito: fala sobre a foto e conclusão embaixo */
+.m-veredito .acima{flex:1 1 0;min-height:0;position:relative;display:flex;align-items:flex-start}
+.m-veredito .acima .foto{position:absolute;inset:0;height:100%}
+.m-veredito .acima .veu{background:linear-gradient(180deg,color-mix(in srgb,var(--tx) 78%,#0000),#0000 60%)}
+.m-veredito .fala{position:relative;z-index:2;margin:0;padding:150px 72px 0;width:100%;text-align:center;color:var(--claro);font-size:calc(42px*var(--k));line-height:1.25;font-weight:500}
+.m-veredito .topo{position:absolute;top:0;left:0;right:0;color:var(--claro)}
+.m-veredito .abaixo{flex:none;height:500px;background:var(--claro);color:var(--tx);--marca:var(--dest);display:flex;align-items:center;justify-content:center;text-align:center;padding:48px 72px}
+
+/* Uma frase: foto cheia com granulado */
+.grao{position:absolute;inset:0;z-index:1;opacity:.28;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* Conversa: post de rede social sem marca de terceiros */
+.m-conversa .autor{display:flex;align-items:center;gap:22px}
+.m-conversa .avatar{width:104px;height:104px;border-radius:50%;background:var(--esc);object-fit:contain;padding:18px;flex:none}
+.m-conversa .nome{font-size:38px;font-weight:700;line-height:1.15}
+.m-conversa .arroba{font-size:32px;opacity:.7;line-height:1.2}
+.m-conversa .post{font-size:calc(46px*var(--k));line-height:1.3;white-space:pre-line;margin:0}
+.sl.f-branco{--fundo:#fff;--texto:var(--tx);--marca:var(--pri)}
+.sl.f-preto{--fundo:#0d0f0d;--texto:#f4f1ec;--marca:var(--dest-claro)}
+
+/* Cores de fundo escolhidas no editor. --sombra é o tom da marca d'água. */
+.sl.v-petroleo{--fundo:var(--pri);--texto:var(--claro);--marca:var(--dest-claro);--sombra:var(--esc)}
+.sl.v-escuro{--fundo:var(--esc);--texto:var(--claro);--marca:var(--dest-claro);--sombra:var(--pri)}
+.sl.v-creme{--fundo:var(--claro);--texto:var(--tx);--marca:var(--dest);--sombra:color-mix(in srgb,var(--claro) 90%,var(--dest))}
+.sl.v-terracota{--fundo:var(--dest);--texto:var(--tx);--marca:var(--claro);--sombra:color-mix(in srgb,var(--dest) 84%,var(--claro))}
+.sl.v-grafite{--fundo:var(--tx);--texto:var(--claro);--marca:var(--dest-claro);--sombra:color-mix(in srgb,var(--tx) 86%,var(--claro))}
+
+/* Marca d'água */
+.agua{position:absolute;z-index:0;fill:var(--sombra);width:128%;height:auto;top:-9%;right:-44%}
+.pos-base .agua{top:auto;bottom:-10%;right:-44%}
+.pos-esquerda .agua{right:auto;left:-50%;top:-5%}
+.pos-centro .agua{width:124%;right:-12%;top:50%;transform:translateY(-50%)}
+.fmt-quadrado .agua{width:112%;right:-42%;top:-12%}
+.fmt-quadrado.pos-base .agua{right:-42%;bottom:-14%;top:auto}
+.fmt-quadrado.pos-esquerda .agua{left:-46%;top:-8%}
+.fmt-quadrado.pos-centro .agua{width:112%;right:-6%;top:50%}
+.fmt-story .agua{width:165%;right:-72%;top:-2%}
+.fmt-story.pos-base .agua{right:-72%;bottom:-2%;top:auto}
+.fmt-story.pos-esquerda .agua{left:-78%;top:4%}
+.fmt-story.pos-centro .agua{width:150%;right:-25%;top:50%}
+.fmt-paisagem .agua{width:82%;right:-16%;top:-18%}
+.fmt-paisagem.pos-base .agua{right:-16%;bottom:-20%;top:auto}
+.fmt-paisagem.pos-esquerda .agua{left:-20%;top:-14%}
+.fmt-paisagem.pos-centro .agua{width:72%;right:14%;top:50%}
+.rotulos{flex:none;display:flex;justify-content:space-between;gap:24px;padding:56px 72px 0;position:relative;z-index:3;font-size:22px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;opacity:.82}
+.logo.grande{width:360px;height:100px;margin-left:-35px;flex:none}
+.ficha{display:flex;flex-direction:column;gap:6px}
+.ficha span{font-size:22px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;opacity:.82}
+.ficha b{font-size:calc(34px*var(--k));font-weight:400;line-height:1.25}
+.ficha em.d,.ficha span em.d{color:inherit}
+.miolo.base,.miolo.meio{padding-bottom:64px}
+
+/* Peças com foto */
+.dividido{position:absolute;inset:0;display:flex;flex-direction:column}
+.dividido .foto{flex:1 1 0;min-height:0}
+.dividido .lado{flex:0 0 auto;max-height:66%;display:flex}
+.dividido .lado .miolo{padding-top:56px}
+.fmt-paisagem .dividido{flex-direction:row}
+.fmt-paisagem .dividido .lado{flex:0 0 52%;max-height:none}
+.cartao-peca{background:var(--claro);color:var(--tx);--marca:var(--dest);padding:64px;display:flex;flex-direction:column;gap:28px}
+
+/* Zona segura do Story: a interface cobre o topo e o pé da tela */
+.fmt-story .rotulos{padding-top:260px}
+.fmt-story .miolo.base,.fmt-story .miolo.meio{padding-bottom:300px}
+.fmt-story .dividido .lado .miolo{padding-bottom:300px}
+.fmt-paisagem .miolo,.fmt-paisagem .rotulos{padding-left:88px;padding-right:88px}

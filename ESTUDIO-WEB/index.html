@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Estúdio de Posts · Fit Pilates</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="css/slides.css">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div id="tela-inicio" class="inicio" hidden></div>
+
+<div id="tela-editor" class="tela" hidden>
+  <header class="barra">
+    <a class="voltar" href="#">← Início</a>
+    <input id="nome" class="nome" aria-label="Nome do carrossel">
+    <span class="status" id="status" role="status"></span>
+    <div class="acoes">
+      <button id="btn-legenda" type="button">Copiar legenda</button>
+      <button id="btn-png" type="button">Baixar este slide</button>
+      <button id="btn-zip" type="button" class="primario">Baixar carrossel (ZIP)</button>
+    </div>
+  </header>
+  <main class="layout">
+    <aside class="painel">
+      <h2>1. Estilo</h2>
+      <div id="modelos"></div>
+      <div id="sec-roteiro">
+        <h2>2. Roteiro</h2>
+        <p class="dica">Separe com <code>SLIDE 1</code>, <code>SLIDE 2</code>… Use <code>*asteriscos*</code> para destacar e <code>LEGENDA</code> no fim.</p>
+        <textarea id="roteiro" rows="14" spellcheck="false" aria-label="Roteiro do carrossel"></textarea>
+        <div class="linha">
+          <button id="btn-aplicar" type="button" class="primario">Aplicar roteiro</button>
+          <button id="btn-exemplo" type="button">Exemplo</button>
+        </div>
+      </div>
+      <div id="sec-peca">
+        <h2>2. Formato</h2>
+        <label>Tamanho <select id="formato"></select></label>
+        <label>Legenda <textarea id="legenda" rows="4" aria-label="Legenda da peça"></textarea></label>
+      </div>
+      <h2>3. Marca</h2>
+      <label>Perfil <input id="perfil" placeholder="@perfil da Fit"></label>
+      <label>Assinatura <input id="assinatura"></label>
+      <div id="cores" class="cores"></div>
+    </aside>
+    <section class="palco">
+      <div id="stage" class="stage"></div>
+      <nav class="tira" id="tira" aria-label="Slides do carrossel"></nav>
+    </section>
+    <aside class="painel" id="editor"></aside>
+  </main>
+</div>
+
+<div id="render" class="render" aria-hidden="true"></div>
+<script src="js/vendor/html-to-image.js"></script>
+<script src="js/vendor/jszip.min.js"></script>
+<script src="js/simbolo.js"></script>
+<script src="js/modelos.js"></script>
+<script src="js/roteiro.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
